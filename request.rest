@@ -1,0 +1,51 @@
+POST http://localhost:4000/users
+Content-Type: application/json
+
+{
+    "name":"joko",
+    "email": "joko@gmail.com",
+    "password": "123456",
+    "confPassword": "123456",
+    "role": "admin"
+}
+
+
+###
+GET http://localhost:4000/users
+
+
+###
+GET  http://localhost:4000/users/8518bfb2-3654-4dfe-87b5-66a03ed08a4c
+
+
+###
+PATCH http://localhost:4000/users/8518bfb2-3654-4dfe-87b5-66a03ed08a4c
+Content-Type: application/json
+
+{
+    "name":"dadi109",
+    "email": "dadi@gmail.com",
+    "password": "",
+    "confPassword": "",
+    "role": "user"
+}
+
+
+###
+DELETE http://localhost:4000/users/8518bfb2-3654-4dfe-87b5-66a03ed08a4c
+
+###
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "email": "joko@gmail.com",
+    "password": "123456"
+}
+
+
+###
+GET http://localhost:4000/me
+
+###
+DELETE http://localhost:4000/logout
