@@ -24,11 +24,15 @@ app.use(session({
         httpOnly: true
     }
 }))
+
+
 app.use(cors({
     credentials: true,
     origin: ['http://localhost:3000', 'https://safaaat.github.io']
 }));
 app.use(express.json());
+app.use(express.urlencoded());
+
 app.use(UsersRouter);
 app.use(ProductsRouter);
 app.use(AuthRoute);
