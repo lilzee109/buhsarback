@@ -6,14 +6,25 @@ import db from "./config/Database.js";
 import UsersRouter from "./router/UsersRouter.js";
 import ProductsRouter from "./router/ProductsRouter.js";
 import AuthRoute from "./router/AuthRoute.js";
+import UserModels from "./models/UserModels.js";
+import ProductModel from "./models/ProductModel.js";
 
 dotenv.config();
 const port = process.env.PORT || 4000;
 const app = express();
 
-(async () => {
-    await db.sync();
-})();
+// (async () => {
+//     await db.sync();
+// })();
+
+try {
+    await db.authenticate();
+    console.log("Database Connected...");
+    await UserModels.sync();
+    await ProductModel.sync();
+} catch (error) {
+    console.error(error);
+}
 
 app.use(session({
     secret: process.env.SESS_SECRET,
