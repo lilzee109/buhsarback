@@ -8,7 +8,7 @@ import ProductsRouter from "./router/ProductsRouter.js";
 import AuthRoute from "./router/AuthRoute.js";
 
 dotenv.config();
-
+const port = process.env.PORT || 4000;
 const app = express();
 
 (async () => {
@@ -34,4 +34,4 @@ app.use(ProductsRouter);
 app.use(AuthRoute);
 
 
-app.listen(process.env.PORT, () => { console.log(`Server Run`) })
+app.listen(port, () => { console.log(`Server Run ${port}`) })
