@@ -42,6 +42,11 @@ app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use(express.json());
 app.use(express.urlencoded());
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
 app.use(UsersRouter);
 app.use(ProductsRouter);
 app.use(AuthRoute);
